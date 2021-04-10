@@ -1,0 +1,11 @@
+<div class="banner-title">
+  <h1>Welcome  to <span>Movie DB</span></h1>
+  <h2>Millions of movies, TV shows and people to discover. Explore now.</h2>
+</div>
+<ul class="gallery">
+    <li style="padding:0px;margin:0px"*ngFor="let movieUrl of movieBannerList" [style.background-image] = "movieUrl" class="background-image"></li>
+  <!-- <li class="background-image" style="background-image: url(https://image.tmdb.org/t/p/original/drulhSX7P5TQlEMQZ3JoXKSDEfz.jpg);"></li>
+  <li class="background-image" style="background-image: url(https://image.tmdb.org/t/p/original/drulhSX7P5TQlEMQZ3JoXKSDEfz.jpg);"></li>
+  <li class="background-image" style="background-image: url(https://image.tmdb.org/t/p/original/drulhSX7P5TQlEMQZ3JoXKSDEfz.jpg);"></li> -->
+</ul>
+<app-search></app-search> 

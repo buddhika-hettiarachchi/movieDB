@@ -1,0 +1,41 @@
+<!-- <app-navbar></app-navbar> -->
+<div>
+  <app-banner *ngIf="popularMovies" [moviesforBanner]="popularMovies"></app-banner>
+  <section style="padding:0px 20px">
+    <div fxLayout="row" class="container-fluid">
+      <h4 *ngIf="!showLoading" style="margin-top:30px;margin-bottom:20px">Trending</h4>
+    </div>
+    <div class="container-fluid" fxLayout="row" fxLayoutGap="15px" style="overflow-x: scroll;overflow-y: hidden;">
+      <app-card *ngFor="let movie of popularMovies" [popularMovie]="movie"></app-card>
+    </div>
+  </section>
+  <section class="video-section" [style.background-image]="popularMovieImageUrl">
+    <div fxLayout="row" class="container-fluid mb-4">
+      <h4 style="color:white;margin-top:30px;">Popular Movie Trailers </h4>
+      <!-- <app-search></app-search> -->
+    </div>
+    <div class="container-fluid" fxLayout="row" fxLayoutGap="15px"
+      style="overflow-x: scroll;padding:20px 10px;overflow-y: hidden;">
+      <app-video-card *ngFor="let movie of popularMovies" [popularMovie]="movie"
+        (hoverEvent)="hoverPopularMovie($event)">
+      </app-video-card>
+    </div>
+  </section>
+  <section  class="movielist-background" style="position: relative;">
+    <h4 *ngIf="!showLoading" style="margin-top:30px;margin-bottom:20px">All Popular Movies</h4>
+    <div class="container-flex d-flex p-1">
+      <div class="row mb-3">
+        <app-card-list style="padding:10px" class="col-lg-2 offset-lg-0 col-md-3 offset-md-0  col-sm-4 "
+          *ngFor="let movie of popularMovieList" [popularMovie]="movie" [gridView]='true'></app-card-list>
+      </div>
+    </div>
+  </section>
+  <div *ngIf="showLoading" style="position: relative;">
+    <app-loading  class="centered-axis-x centered-axis-xy "></app-loading>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center" >
+    <a type="button" (click)="getPreviousMovies()" class="btn-arrow btn-arrow-left" title="Previous">Previous</a>
+    <a type="button" (click)="getNextMovies() " class="btn-arrow btn-arrow-right" title="Next">Next</a>
+  </div>
+  <app-footer></app-footer>
+</div>

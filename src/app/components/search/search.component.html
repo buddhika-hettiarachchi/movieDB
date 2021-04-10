@@ -1,0 +1,12 @@
+<div class="wrap">
+  <div class="search">
+     <input type="text" (keyup.enter)="search(movieName.value)" class="searchTerm" placeholder="Search for a movie" #movieName>
+     <button type="button" (click)="search(movieName.value)" class="searchButton">
+       <i class="fa fa-search"></i>
+    </button>
+  </div>
+</div>
+
+<!-- <div class="container">
+  <div class="search-group v2"><input class="search-input inactive" type="text" placeholder="I'm looking for..." /><button class="button button-brand-primary button-search">Search</button></div>
+</div> -->

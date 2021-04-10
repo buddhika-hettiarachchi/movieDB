@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=New+Tegomin&family=Source+Sans+Pro:wght@400;700&display=swap");
+
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Source Sans Pro";
+}
+
+.gallery {
+  padding: 0rem;
+  display: grid;
+  grid-template-columns: repeat(10, 80vw);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0rem;
+  grid-row-gap: 0rem;
+  overflow: scroll;
+  height: 100vh;
+  scroll-snap-type: both mandatory;
+  scroll-padding: 1rem;
+  overflow: hidden;
+  margin-bottom: 0px;
+}
+
+.active {
+  scroll-snap-type: unset;
+}
+
+li {
+  scroll-snap-align: center;
+  display: inline-block;
+  border-radius: 3px;
+  font-size: 0;
+}
+
+.background-image {
+  background-size: cover;
+}
+.banner-title {
+  position: absolute;
+  color: white;
+  top: 20%;
+  // left:10%;
+  width: 100%;
+}
+
+.banner-title h1 {
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}
+
+.banner-title h2 {
+  text-align: center;
+  margin: 5px 0;
+}

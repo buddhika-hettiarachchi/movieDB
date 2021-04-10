@@ -1,0 +1,42 @@
+.card-container{
+  width:20rem;
+  text-align: center;
+}
+
+.card{
+  border:none !important;
+  height:12rem;
+  border-radius: .5rem;
+  margin-bottom:10px;
+  transition: transform .2s; /* Animation */
+}
+
+.card:hover {
+  transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  cursor: pointer;
+}
+
+.card-img-top {
+  height:12rem !important;
+  border-radius: .5rem;
+}
+
+.modal {
+  text-align: center;
+}
+
+.modal::before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  margin-right: -4px;
+  vertical-align: middle;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+
