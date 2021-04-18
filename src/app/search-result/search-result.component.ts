@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators'
 
@@ -11,10 +11,10 @@ import { map } from 'rxjs/operators'
 })
 export class SearchResultComponent implements OnInit {
 
-  results:any;
-  state:any;
+  results: any;
+  state: any;
 
-  constructor(public activatedRoute: ActivatedRoute) { }
+  constructor(public activatedRoute: ActivatedRoute,private router:Router) { }
 
   ngOnInit(): void {
 
@@ -28,14 +28,14 @@ export class SearchResultComponent implements OnInit {
 
       },
       err => {
-        console.log(err)
+        console.log(err) 
       }
     )
 
-
-
-
-
+  }
+ 
+  onMovieClick(movie) {
+    this.router.navigate(['/movieDetails',movie.id]) 
   }
 
 }

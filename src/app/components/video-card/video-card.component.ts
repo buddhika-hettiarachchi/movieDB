@@ -18,16 +18,19 @@ export class VideoCardComponent implements OnInit, AfterViewInit {
   youtubeLink: string;
   videoCardId: string;
 
+
+
   constructor(private movieService: MovieService) { }
 
   @ViewChild("videoModal", { static: false }) videoModal: ElementRef;
 
 
   ngOnInit(): void {
+    
     this.backdropPath = this.popularMovie.backdrop_path;
     this.videoCardTitle = this.popularMovie.title
     this.videoCardId = `#${this.videoCardTitle}`
-    this.imageUrl = `https://image.tmdb.org/t/p/w500${this.backdropPath}`
+    this.imageUrl = `https://image.tmdb.org/t/p/original${this.backdropPath}`
 
     this.movieService.getMovieTrailerKey(this.popularMovie.id).subscribe(
       res => {
@@ -41,20 +44,11 @@ export class VideoCardComponent implements OnInit, AfterViewInit {
 
   }
 
-  myfunction(value) {
-    console.log("vidoe key value:::: ::: " + JSON.stringify(value))
-    // let myModalEl = document.getElementById(this.videoKey)
-    // let innerHtml = myModalEl.innerHTML
-    // myModalEl.innerHTML = "";
-    // myModalEl.innerHTML = innerHtml
-  };
 
   ngAfterViewInit(): void {
     this.videoModal.nativeElement.addEventListener('hidden.bs.modal', function(){
       })
   }
-
-
 
   mouseEnter() {
     this.hoverEvent.emit(this.imageUrl)

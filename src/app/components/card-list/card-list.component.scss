@@ -133,6 +133,7 @@ body {
   padding:0px;
   border-radius: 10px;
   cursor: pointer;
+  position: relative;
 
   -webkit-box-shadow: 0 0 5px #000;
         box-shadow: 0 0 5px #000;
@@ -240,4 +241,9 @@ body {
   border-radius: 50%;
   display: inline-block;
 }
-
+.list-movie-title{
+  margin:0px;
+  position: absolute;
+  bottom:-15%; 
+}
+ 

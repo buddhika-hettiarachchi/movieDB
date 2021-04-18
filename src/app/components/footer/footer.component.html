@@ -1,16 +1,83 @@
-<section class="footer">
-  <div class="container">
-    <div class="footer__content">
-      <div class="footer__heading">
-        <h2>Bhairab</h2>
-      </div>
-      <p class="mb-0">Content & Graphics © 2020 bhairab.iitd@gmail.com LLC</p>
+<div style="position: relative;">
+  <div class="p-5 bg-indigo-900 py-12 m-0" style="background-color: #111041">
+    <div class="flex flex-col">
+      <!-- <h3 class="text-3xl leading-10 text-white  w-full text-center font-bold">Sign up to our newsletter to receive updates</h3> -->
+      <h1
+        class="text-3xl leading-10 text-gray-500 w-full md:w-2/4 self-center text-center lg:pt-6"
+      >
+        Subscribe for our newsletter to receive updates
+      </h1>
+    </div>
+    <!-- notfication strat  -->
+    <div class="notification" id="notification1">
+      <svg
+        id="Layer_1"
+        style="enable-background: new 0 0 612 792"
+        version="1.1"
+        viewBox="0 0 612 792"
+        xml:space="preserve"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        width="50" 
+      >
+        <style type="text/css">
+          .st0 {
+            fill: #41ad49;
+          }
+        </style>
+        <g>
+          <path
+            class="st0"
+            d="M562,396c0-141.4-114.6-256-256-256S50,254.6,50,396s114.6,256,256,256S562,537.4,562,396L562,396z    M501.7,296.3l-241,241l0,0l-17.2,17.2L110.3,421.3l58.8-58.8l74.5,74.5l199.4-199.4L501.7,296.3L501.7,296.3z"
+          />
+        </g>
+      </svg>
+       Subscribed Successfully
+    </div>
 
-      <ul class="social__media">
-        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-        <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+    <!-- notification end  -->
+
+    <div class="flex flex-row justify-center space-x-3 py-4">
+      <input
+        class="bg-white rounded-lg text-sm px-2 sm:px-3 md:px-8 py-3"
+        type="email"
+        placeholder="name@email.com"
+        required
+        email="true"
+        [(ngModel)]="value"
+        #name="ngModel"
+      />
+      <input
+        id="popper1"
+        class="font-bold rounded-lg text-white bg-blue-700 hover:bg-blue-600 cursor-pointer px-3 py-1 md:px-6 md:py-3 focus:outline-none"
+        type="button"
+        value="subscribe"
+        [disabled]="name.invalid"
+        [ngClass]="name.invalid ? 'invalid' : 'valid'"
+      />
+    </div>
+    <div class="font-bold text-white-50 content-center">
+      <ul class="flex flex-row space-x-6 py-4 justify-center">
+        <li (click)="onAboutUs()">
+          <a class="hover:underline cursor-pointer">About Us</a>
+        </li>
+        <li (click)="onContact()">
+          <a class="hover:underline cursor-pointer">Contact Us</a>
+        </li>
+        <li (click)="onPrivacy()">
+          <a class="hover:underline cursor-pointer">Privacy Policy</a>
+        </li>
+        <li (click)="onHome()">
+          <a class="hover:underline cursor-pointer">Home</a>
+        </li>
       </ul>
     </div>
+    <div class="">
+      <div style="text-align: center">
+        <p class="text-gray-600 text-xs">
+          © 2021&nbsp;Moving Picture Club. All rights reserved.
+        </p>
+      </div>
+    </div>
   </div>
-</section>
+</div>

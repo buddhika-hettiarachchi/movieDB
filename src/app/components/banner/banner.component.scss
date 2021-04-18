@@ -8,15 +8,16 @@
   font-family: "Source Sans Pro";
 }
 
-.gallery {
+.gallery { 
   padding: 0rem;
   display: grid;
-  grid-template-columns: repeat(10, 80vw);
+  grid-template-columns: repeat(10,100%);
   grid-template-rows: 1fr;
   grid-column-gap: 0rem;
   grid-row-gap: 0rem;
+  grid-column-start: 2;
   overflow: scroll;
-  height: 100vh;
+  height: 60vh;
   scroll-snap-type: both mandatory;
   scroll-padding: 1rem;
   overflow: hidden;
@@ -30,7 +31,6 @@
 li {
   scroll-snap-align: center;
   display: inline-block;
-  border-radius: 3px;
   font-size: 0;
 }
 
@@ -41,7 +41,7 @@ li {
   position: absolute;
   color: white;
   top: 20%;
-  // left:10%;
+  right: 0%;
   width: 100%;
 }
 

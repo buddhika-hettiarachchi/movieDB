@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=New+Tegomin&family=Source+Sans+Pro:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=New+Tegomin&family=Source+Sans+Pro:wght@400;700&display=swap");
 
-h2{
-  font-family:"Source Sans Pro"
+h2 {
+  font-family: "Source Sans Pro";
 }
 
 /* width */
 ::-webkit-scrollbar {
   width: 20px;
-  height:10px;
+  height: 10px;
 }
 
 /* Track */
@@ -27,91 +27,86 @@ h2{
   background: rgb(199, 199, 201);
 }
 
-.video-section{
-  background-color:linear-gradient(
-    rgba(255, 0, 0, 0.45),
-    rgba(255, 0, 0, 0.45)
-  );
-  background-size:cover;
-
+.video-section {
+  background-color: linear-gradient(rgba(255, 0, 0, 0.45), rgba(255, 0, 0, 0.45));
+  background-size: cover;
 }
 
-.movielist-background{
+.movielist-background {
   background-color: #fdfdfd;
 }
 
 .btn-arrow {
   color: transparent;
   display: block;
-  margin: 3rem;
+  // margin: 3rem;
   position: relative;
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
 
-  background-color: rgba(black, .05);
+  background-color: rgba(black, 0.05);
 
   transition: all 150ms ease-out;
 
   &::before,
   &::after {
-      content: "";
-      display: block;
-      position: absolute;
-          top: 0;
-          left: 0;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
 
-      background-color: #606060;
+    background-color: #606060;
 
-      transition: all 150ms ease-out;
+    transition: all 150ms ease-out;
   }
 
   &::before {
-      width: 75%;
-      height: 25%;
+    width: 75%;
+    height: 25%;
   }
 
   &::after {
-      width: 25%;
-      height: 75%;
+    width: 25%;
+    height: 75%;
   }
 
-  &:hover, &:focus {
-      background-color: rgba(black, .1);
+  &:hover,
+  &:focus {
+    background-color: rgba(black, 0.1);
 
-      &::before,
-      &::after {
-          background-color: #404040;
-      }
+    &::before,
+    &::after {
+      background-color: #404040;
+    }
   }
 
   &.btn-arrow-left,
   &.btn-arrow-right {
-      &::before,
-      &::after {
-          top: 12.5%;
-          left: 12.5%;
-      }
+    &::before,
+    &::after {
+      top: 12.5%;
+      left: 12.5%;
+    }
   }
 
   &.btn-arrow-left {
-      transform: rotate(-45deg);
-      margin: 100px;
+    transform: rotate(-45deg);
   }
 
   &.btn-arrow-right {
-      transform: rotate(135deg);
-      margin:100px;
+    transform: rotate(135deg);
   }
 }
 
-.loading{
+.loading {
   position: absolute;
   left: 0;
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  width:300px;
-  height:300px;
+  width: 300px;
+  height: 300px;
 }
 
 .centered-axis-x {
@@ -124,5 +119,24 @@ h2{
   position: absolute;
   left: 50%;
   top: 80%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
+}
+
+// .footer {
+//   position: fixed;
+//   bottom: 0;
+// } 
+
+.grabbable {
+  cursor: move; /* fallback if grab cursor is unsupported */
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+/* (Optional) Apply a "closed-hand" cursor during drag operation. */
+.grabbable:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
 }

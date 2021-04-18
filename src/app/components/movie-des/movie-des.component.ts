@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { MovieService } from 'src/app/services/movie.service';
 
@@ -8,7 +8,7 @@ import { MovieService } from 'src/app/services/movie.service';
   templateUrl: './movie-des.component.html',
   styleUrls: ['./movie-des.component.scss']
 })
-export class MovieDesComponent implements OnInit {
+export class MovieDesComponent implements OnInit,OnDestroy {
 
   id: string
   backdropPath: string;
@@ -25,7 +25,12 @@ export class MovieDesComponent implements OnInit {
   castList: any[];
   movieReviewList
 
+  videoKey:string;
+  youtubeLink:string;
 
+
+
+  @ViewChild('modal') modal: ElementRef;
 
 
   constructor(private router: Router, private route: ActivatedRoute, private movieService: MovieService) {
@@ -33,7 +38,7 @@ export class MovieDesComponent implements OnInit {
       this.id = paramMap.get('id');;
     });
   }
-
+  
   ngOnInit(): void {
     // this.router.events.subscribe((evt) => {
     //   if (!(evt instanceof NavigationEnd)) {
@@ -68,6 +73,16 @@ export class MovieDesComponent implements OnInit {
       })
     )
 
+    this.movieService.getMovieTrailerKey(this.id).subscribe(
+      res => {
+        this.videoKey = res['results'][0]['key']
+        this.youtubeLink = `https://www.youtube.com/embed/${this.videoKey}`
+      },
+      err => {
+        console.log(err)
+      }
+    )
+
     this.movieService.getCast(this.id).subscribe(
       res => {
         this.castList = res['cast'];
@@ -77,6 +92,8 @@ export class MovieDesComponent implements OnInit {
         console.log(err)
       }
     )
+
+
 
     this.movieService.getMovieReviews(this.id).subscribe(
       res=>{
@@ -90,21 +107,24 @@ export class MovieDesComponent implements OnInit {
   }
 
 
-  readMore(review){
+  ngOnDestroy(): void {
+  this.modal.nativeElement.remove() 
+
+  } 
+
+ 
+  readMore(review){ 
     console.log(review)
+    this.router.navigate(['readmore',review])
   }
 
-  //   adult: false
-  // cast_id: 0
-  // character: "Diana Prince / Wonder Woman"
-  // credit_id: "595686e4c3a368382e050da4"
-  // gender: 1
-  // id: 90633
-  // known_for_department: "Acting"
-  // name: "Gal Gadot"
-  // order: 0
-  // original_name: "Gal Gadot"
-  // popularity: 45.15
-  // profile_path: "/fysvehTvU6bE3JgxaOTRfvQJzJ4.jpg
+
+  // onTrailer(){
+  //   console.log("review")
+  // }
+
+  // onPlayButton(){
+  //   console.log("playbutton clicked")
+  // }
 
 }

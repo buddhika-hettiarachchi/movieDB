@@ -1,5 +1,5 @@
 <section style="padding:5px;background-size:cover;height:100vh" [style.background-image]="popularMovieImageUrl">
-  <div class="movie_card" id="bright">
+  <div class="movie_card" id="bright" >
     <div class="info_section">
       <div class="movie_header">
         <img class="locandina" src={{posterUrl}} />
@@ -13,23 +13,40 @@
           {{overview}}
         </p>
       </div>
-      <!-- <div class="movie_social">
-        <ul>
-          <li><i class="material-icons">share</i></li>
-          <li><i class="material-icons"></i></li>
-          <li><i class="material-icons">chat_bubble</i></li>
-        </ul>
-      </div> -->
+      <app-playboutton  data-bs-toggle="modal" data-bs-target="#exampleModal"  type="button" style="position: absolute;right:20%;top:40%"></app-playboutton>
+      <!-- <h2 style="position: absolute;right:19%;top:60%" class="font-medium	 text-xl	text-white	">Play Trailer</h2> -->
     </div>
-    <div class="blur_back bright_back"></div>
+    <!-- <div class="blur_back bright_back"></div> -->
+
   </div>
 </section>
-<!-- <section class="add-space-1">
-  <h1>Ad space</h1>
-</section> -->
+<!-- model -->
+<div  class="modal fade bsModal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" #modal>
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl modal-xl">
+    <div class="modal-content">
+      <!-- <div>{{this.videoCardTitle}}</div> -->
+      <!-- <div style="width:80vw;height:80vh;padding:0px;overflow: hidden;" class="modal-body">
+        <iframe id="youtubeVideo" width = "100%" height = 100%   [src]="youtubeLink | safe" allowfullscreen>
+        </iframe>
+      </div>   -->
+      <div style="width:1000px;height: 600px;">
+        <embed
+        [src]="youtubeLink | safe"
+          wmode="transparent"
+          type="video/mp4"
+          width="100%" height="100%"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen
+          title="Keyboard Cat"
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
 <section style="padding:0px 20px">
   <div fxLayout="row" class="container-fluid">
-    <h4 style="margin-top:30px;margin-bottom:20px">Cast
+    <h4 style="margin-top:30px;margin-bottom:20px" class="text-3xl font-semibold">Cast 
     </h4>
   </div>
   <div class="container-fluid" fxLayout="row" fxLayoutGap="15px" style="overflow-x: scroll;overflow-y: hidden;">
@@ -47,45 +64,6 @@
     </div>
   </div>
 </section>
-<!-- <section fxLayout="row" style="margin:10px 0px" *ngIf="'review'">
-  <div fxFlex="100%">
-    <div class="container-fluid">
-      <h4 style="margin-top:30px;margin-bottom:20px;padding-left:12px">Reviews
-      </h4>
-      <div class="card mb-3 border-info border-1" style="max-width: 100%;" *ngFor="let review of movieReviewList" #review
-       >
-        <div class="row g-0">
-          <div class="col-md-12">
-            <div class="card-body">
-              <h5 class="card-title">{{review.author}}</h5>
-              <p class="card-text">{{review.content | truncatetext:400}}<span data-bs-toggle="modal" data-bs-target="#exampleModal" style="color:blue;cursor: pointer;" (click)="readMore(review)">{{(review.content | truncatetext:400).substr(-3) === "..." ? '  Read more' :''}}</span></p>
-              <p class="card-text"><small class="text-muted">Last updated {{review.updated_at | date}}</small></p>
-            </div>
-          </div>
-        </div>
-
- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h4 class="modal-title" id="exampleModalLabel">{{title}} <span><p style='font-weight:300;font-size: 1em;'> <span style="color:goldenrod">Written by</span> : {{review.author}}</p></span></h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <p>{{review.content}}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-<!-- <div fxFlex="20%">
-    <div class="add-space-2">
-      <h3>Ad Space</h3>
-    </div>
-  </div> -->
-<!-- </section> -->
 <section >
   <div class="courses-container">
     <div class="course" *ngFor="let review of movieReviewList">
@@ -95,20 +73,22 @@
       </div>
       <div class="course-info">
         <div class="progress-container">
-          <img style="width:20px;height:20px;margin-right:5px" src="/assets/star.png" alt="image">
-          <span class="progress-text">
-            {{review.author_details.rating}}
-          </span>
+          <div fxFlex fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px"> 
+            <img style="width:20px;height:20px;" src="/assets/star.png" alt="image">
+            <span class="progress-text" class="text-xl font-semibold">
+              {{review.author_details.rating}}
+            </span>
+          </div>
         </div>
         <h4>{{review.author}}</h4>
-        <h6>{{review.content | truncatetext:400}}<span data-bs-toggle="modal" data-bs-target="#exampleModal"
+        <h6>{{review.content | truncatetext:400}}<span
             style="color:blue;cursor: pointer;"
             (click)="readMore(review)">{{(review.content | truncatetext:400).substr(-3) === "..." ? '  Read more' :''}}</span>
         </h6>
       </div>
 
       <!-- modall -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
           <div class="modal-content">
             <div class="modal-header">
@@ -123,7 +103,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>

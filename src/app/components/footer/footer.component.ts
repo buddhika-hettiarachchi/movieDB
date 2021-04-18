@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +8,47 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  value:any;
 
+  constructor(private router:Router) { }
+ 
   ngOnInit(): void {
+
+    var notificationbar = document.getElementById('notification1');
+
+    document
+      .getElementById('popper1')
+      .addEventListener('click', notificationPop);
+
+    function notificationHide() {
+      notificationbar.classList.remove('pop');
+    }
+
+    function notificationDisplay() {
+      notificationbar.classList.add('pop');
+    }
+
+    function notificationPop() {
+      notificationDisplay();
+      setTimeout(notificationHide, 1000);
+    }
+
+  }
+
+  onAboutUs(){
+    this.router.navigate(['/about'])
+  }
+
+  onContact(){
+    this.router.navigate(['/contact'])
+  }
+
+  onPrivacy(){
+    this.router.navigate(['/privacy']) 
+  }
+
+  onHome(){
+    this.router.navigate([''])
   }
 
 }

@@ -7,11 +7,19 @@
 
 .navbar-brand
 {
-  color:red;
-  font-size: 2em 
+  background: #00B4CC;
+  background: -webkit-linear-gradient(to right, #00B4CC 0%, #0AFFEF 50%, #0FA7FF 100%);
+  background: -moz-linear-gradient(to right, #00B4CC 0%, #0AFFEF 50%, #0FA7FF 100%); 
+  background: linear-gradient(to right, #00B4CC 0%, #0AFFEF 50%, #0FA7FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .navbar-brand:hover{
-  color:red;
-  font-size: 2em;
+  background: #00B4CC;
+  background: -webkit-linear-gradient(to right, #00B4CC 0%, #0AFFEF 50%, #0FA7FF 100%);
+  background: -moz-linear-gradient(to right, #00B4CC 0%, #0AFFEF 50%, #0FA7FF 100%);
+  background: linear-gradient(to right, #00B4CC 0%, #0AFFEF 50%, #0FA7FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

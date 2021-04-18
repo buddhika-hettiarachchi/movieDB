@@ -27,7 +27,13 @@ import { CardListComponent } from './components/card-list/card-list.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { SerachCardComponent } from './components/serach-card/serach-card.component';
-
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
+import { ReadMoreComponent } from './read-more/read-more.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { NotificationComponent } from './components/notification/notification.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -53,13 +59,21 @@ import { SerachCardComponent } from './components/serach-card/serach-card.compon
     LoadingComponent,
     SearchResultComponent,
     SerachCardComponent,
-
+    AboutUsComponent,
+    PrivacyPolicyComponent,
+    ReadMoreComponent,
+    ContactusComponent,
+    NotificationComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule
+    // BackButtonDisableModule.forRoot({
+    //   preserveScrollPosition: true
+    // })
   ],
   providers: [],
   bootstrap: [AppComponent]

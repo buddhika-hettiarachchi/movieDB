@@ -1,9 +1,9 @@
-<!-- <app-navbar></app-navbar> -->
-<div>
-  <app-banner *ngIf="popularMovies" [moviesforBanner]="popularMovies"></app-banner>
+<div style="max-width: 1400px;margin:0 auto">
+  <app-navbar></app-navbar>
+  <app-banner class="grabbable" *ngIf="popularMovies" [moviesforBanner]="popularMovies"></app-banner>
   <section style="padding:0px 20px">
     <div fxLayout="row" class="container-fluid">
-      <h4 *ngIf="!showLoading" style="margin-top:30px;margin-bottom:20px">Trending</h4>
+      <h4 *ngIf="!showLoading" style="margin-top:30px;margin-bottom:20px" class="font-bold text-2xl">Trending</h4>
     </div>
     <div class="container-fluid" fxLayout="row" fxLayoutGap="15px" style="overflow-x: scroll;overflow-y: hidden;">
       <app-card *ngFor="let movie of popularMovies" [popularMovie]="movie"></app-card>
@@ -11,7 +11,7 @@
   </section>
   <section class="video-section" [style.background-image]="popularMovieImageUrl">
     <div fxLayout="row" class="container-fluid mb-4">
-      <h4 style="color:white;margin-top:30px;">Popular Movie Trailers </h4>
+      <h4 style="margin-top:30px;" class="font-bold text-2xl text-white">Popular Movie Trailers </h4>
       <!-- <app-search></app-search> -->
     </div>
     <div class="container-fluid" fxLayout="row" fxLayoutGap="15px"
@@ -21,21 +21,26 @@
       </app-video-card>
     </div>
   </section>
-  <section  class="movielist-background" style="position: relative;">
-    <h4 *ngIf="!showLoading" style="margin-top:30px;margin-bottom:20px">All Popular Movies</h4>
+  <section class="movielist-background" style="position: relative;">
+    <h4 *ngIf="!showLoading" style="margin-top:30px;margin-bottom:40px;padding-left:10px" class="font-bold text-2xl">All Popular Movies</h4>
     <div class="container-flex d-flex p-1">
-      <div class="row mb-3">
-        <app-card-list style="padding:10px" class="col-lg-2 offset-lg-0 col-md-3 offset-md-0  col-sm-4 "
-          *ngFor="let movie of popularMovieList" [popularMovie]="movie" [gridView]='true'></app-card-list>
+      <div class="row mb-3"> 
+        <div  *ngFor="let movie of popularMovieList; let i = index " class="col-lg-2 offset-lg-0 col-md-3 offset-md-0  col-sm-4 " style="margin-bottom:60px">
+          <app-card-list *ngIf="i != 18 && i != 19"   
+          [popularMovie]="movie" [gridView]='true'></app-card-list>
+        </div>
       </div>
     </div>
   </section>
   <div *ngIf="showLoading" style="position: relative;">
-    <app-loading  class="centered-axis-x centered-axis-xy "></app-loading>
+    <app-loading class="centered-axis-x centered-axis-xy "></app-loading>
   </div>
-  <div fxLayout="row" fxLayoutAlign="center" >
-    <a type="button" (click)="getPreviousMovies()" class="btn-arrow btn-arrow-left" title="Previous">Previous</a>
-    <a type="button" (click)="getNextMovies() " class="btn-arrow btn-arrow-right" title="Next">Next</a>
+  <div fxLayout="row" fxLayoutAlign="center" style="margin-bottom:50px">
+    <a type="button" (click)="getPreviousMovies()" class="btn-arrow btn-arrow-left" title="Previous"></a>
+    <span style="width:70px"></span>
+    <a type="button" (click)="getNextMovies() " class="btn-arrow btn-arrow-right" title="Next"></a>
   </div>
-  <app-footer></app-footer>
+  <div>
+    <app-footer class="footer"></app-footer>
+  </div>
 </div>

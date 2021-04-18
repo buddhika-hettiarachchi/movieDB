@@ -1,0 +1,96 @@
+<app-navbar></app-navbar>
+<div class="background">
+  <div class="container">
+    <div class="screen">
+      <div class="screen-body">
+        <div class="screen-body-item left">
+          <div class="app-title">
+            <span>Contact</span>
+            <span> Moving Picture Club</span>
+          </div>
+        </div>
+        <div class="screen-body-item">
+          <div class="app-form">
+            <div class="app-form-group">
+              <input
+                class="app-form-control"
+                placeholder="FIRST NAME"
+                required
+                [(ngModel)]="firstName"
+                #firstname="ngModel"
+              />
+            </div>
+            <div class="app-form-group">
+              <input
+                class="app-form-control"
+                placeholder="LAST NAME"
+                required
+                [(ngModel)]="lastName"
+                #lastname="ngModel"
+              />
+            </div>
+            <div class="app-form-group">
+              <input
+                class="app-form-control"
+                placeholder="EMAIL"
+                required
+                email="true"
+                [(ngModel)]="email"
+                #mail="ngModel"
+              />
+            </div>
+            <div class="app-form-group">
+              <input class="app-form-control" placeholder="CONTACT NO" />
+            </div>
+            <div class="app-form-group message">
+              <input class="app-form-control" placeholder="MESSAGE" />
+            </div>
+            <!-- notfication strat  -->
+            <div class="notification" id="notification">
+              <svg
+                id="Layer_1"
+                style="enable-background: new 0 0 612 792"
+                version="1.1"
+                viewBox="0 0 612 792"
+                xml:space="preserve"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="50"
+              >
+                <style type="text/css">
+                  .st0 {
+                    fill: #41ad49;
+                  }
+                </style>
+                <g>
+                  <path
+                    class="st0"
+                    d="M562,396c0-141.4-114.6-256-256-256S50,254.6,50,396s114.6,256,256,256S562,537.4,562,396L562,396z    M501.7,296.3l-241,241l0,0l-17.2,17.2L110.3,421.3l58.8-58.8l74.5,74.5l199.4-199.4L501.7,296.3L501.7,296.3z"
+                  />
+                </g>
+              </svg>
+              Submitted Successfully
+            </div>
+
+            <!-- notification end  -->
+            <div class="app-form-group buttons">
+              <button class="app-form-button" (click)="onCancel()">
+                CANCEL
+              </button>
+              <button
+                id="popper"
+                class="app-form-button"
+                [disabled]="firstname.invalid || lastname.invalid || mail.invalid"
+                [ngClass]="firstname.invalid || lastname.invalid || mail.invalid ? 'invalid' : 'valid'"
+                (click)= "onSend()"
+              >
+                SEND
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
